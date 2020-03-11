@@ -11,6 +11,8 @@ import java.util.Arrays;
  */
 public class DuiXiang {
 	
+	static int si = 100;//静态变量
+	
 	public static void main(String[] args) {
 		String s;//这是一个没有对象关联的一个引用
 		String s1 = "asdf";//字符串可以用带引号的文本初始化
@@ -38,5 +40,49 @@ public class DuiXiang {
 		System.out.println(Arrays.toString(strs));
 		int[] ints = new int[3];
 		System.out.println(Arrays.toString(ints));
+		
+		//作用域 决定了在其内定义的变量名的可见性和生命周期，由花括号的位置决定
+		int x = 7;
+		while(true) {
+			int y = 8;
+			//此处x,y都可以访问
+			break;
+		}
+		//此处只能访问到x,不能访问到y
+		
+		int i1;
+		//System.out.println(i1);//这样写编译器会报错
+		ATypeName at = new ATypeName();
+		System.out.println(at.num);
+		System.out.println(at.str);
+		System.out.println(at.ft);
+		
+		StaticTest staticTest1 = new StaticTest();
+		StaticTest staticTest2 = new StaticTest();
+		System.out.println(staticTest1.a);//对象调用，打印10
+		System.out.println(StaticTest.a);//类名调用，打印10
+		staticTest2.staticMethod();
+		System.out.println(staticTest1.a);//打印11
+	}
+}
+
+class ATypeName {
+	int num;//成员变量基本类型，赋对应的默认值，int 为 0
+	String str;//引用类型，赋默认值null
+	float ft = 1.12f; 
+	public void doSomething() {
+		int a;
+		String s;
+		//System.out.println(a);//局部变量基本类型不赋值编译报错
+		//System.out.println(s);//局部变量引用类型不赋值编译报错
+		System.out.println(num);//0
+		System.out.println(ft);//1.12
+	}
+}
+
+class StaticTest {
+	static int a = 10;//静态变量
+	static void staticMethod() {//静态方法
+		a++;
 	}
 }
