@@ -3,3 +3,4 @@
 .settings
 target
 *.ignore
+**/.sts4-cache/*
