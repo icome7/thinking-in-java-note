@@ -46,6 +46,37 @@ public class BitManipulation {
 		printBinaryLong("(~l) >> 5", (~l) >> 5);
 		printBinaryLong("l >>> 5", l >>> 5);
 		printBinaryLong("(~l) >>> 5", (~l) >>> 5);
+		System.out.println("==============================");
+		//练习11
+		int num = 0x12;
+		System.out.println(Integer.toBinaryString(num));
+		System.out.println(Integer.toBinaryString(num >>= 1));
+		System.out.println(Integer.toBinaryString(num >>= 1));
+		System.out.println(Integer.toBinaryString(num >>= 1));
+		System.out.println(Integer.toBinaryString(num >>= 1));
+		System.out.println(Integer.toBinaryString(num >>= 1));
+		System.out.println("==============================");
+		//练习12
+		int num1 = 0b111111;
+		System.out.println(num1);
+		System.out.println(Integer.toBinaryString(num1 <<= 1));
+		System.out.println(Integer.toBinaryString(num1 >>>= 1));
+		System.out.println(Integer.toBinaryString(num1 >>>= 1));
+		System.out.println(Integer.toBinaryString(num1 >>>= 1));
+		System.out.println(Integer.toBinaryString(num1 >>>= 1));
+		System.out.println(Integer.toBinaryString(num1 >>>= 1));
+		System.out.println(Integer.toBinaryString(num1 >>>= 1));
+		System.out.println(Integer.toBinaryString(num1 >>>= 1));
+		System.out.println("==============================");
+		//练习13
+		charShow('a');
+		charShow('b');
+		charShow('R');
+		charShow('y');
+	}
+	
+	static void charShow(char c) {
+		System.out.println(Integer.toBinaryString(c));
 	}
 	
 	static void printBinaryInt(String s, int i){
